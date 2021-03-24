@@ -3,8 +3,8 @@ name: Building GSI..
 on: push
     
 env:
-  ROM_URL: https://dl.google.com/dl/android/aosp/walleye-rp1a.201005.004.a1-factory-0c23f6cf.zip
-  ROM_NAME: Pixel
+  ROM_URL: https://download1339.mediafire.com/il8t1p4vdvzg/hmj6vgpvxiyf52x/lenovo_k10_plus%28l39051%29_kama2_ROW_B229_04122019_SIGN_RepairMyMobile.in.zip
+  ROM_NAME: ZUI
   TZ: Europe/London
   MIR: cow
   TYPE: ab
@@ -24,7 +24,7 @@ jobs:
             sudo -E apt-get -qq install git openjdk-8-jdk wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/00p513-dev/ErfanGSIs-channel.git  ErfanGSIs
+         run: git clone --recurse-submodules https://github.com/00p513-dev/ErfanGSIs-VelanGSIs.git  ErfanGSIs
        
        - name: Setting up ErfanGSI requirements
          run: |
@@ -33,7 +33,7 @@ jobs:
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME $DEVICE --$TYPE
+         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME --$TYPE
              
        - name: Upload Image
          uses: actions/upload-artifact@v2
